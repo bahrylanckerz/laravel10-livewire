@@ -34,9 +34,9 @@ class MemberResource extends Resource
             ->schema([
                 TextInput::make('name')->label('Name')->required(),
                 TextInput::make('designation')->label('Designation')->required(),
-                TextInput::make('fb_url')->label('Link Facebook')->placeholder('Facebook URL'),
-                TextInput::make('ig_url')->label('Link Instagram')->placeholder('Instagram URL'),
-                TextInput::make('in_url')->label('Link Linkedin')->placeholder('Linkedin URL'),
+                TextInput::make('fb_url')->url()->label('Link Facebook')->placeholder('Facebook URL'),
+                TextInput::make('ig_url')->url()->label('Link Instagram')->placeholder('Instagram URL'),
+                TextInput::make('in_url')->url()->label('Link Linkedin')->placeholder('Linkedin URL'),
                 FileUpload::make('image')->label('Photo'),
                 Select::make('status')
                     ->options([
