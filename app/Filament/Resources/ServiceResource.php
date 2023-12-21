@@ -50,6 +50,7 @@ class ServiceResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('title')->label('Title'),
+                TextColumn::make('short_desc')->label('Short Description'),
             ])
             ->filters([
                 //
