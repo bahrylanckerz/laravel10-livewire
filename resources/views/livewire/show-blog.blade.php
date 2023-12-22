@@ -74,7 +74,7 @@
                                 <!-- post-item -->
                                 <ul class="list-unstyled widget-list">
                                     <li class="d-flex widget-post align-items-center">
-                                        <a class="text-black" href="/blog/elements/">
+                                        <a class="text-black" wire:navigate href="{{ route('blog.detail', $post->slug) }}">
                                             <div class="widget-post-image flex-shrink-0 me-3">
                                                 @if ($post->thumbnail != '')
                                                     <img loading="lazy" decoding="async" src="{{ asset('storage/'.$post->thumbnail) }}" alt="Post Thumbnail">
@@ -82,7 +82,7 @@
                                             </div>
                                         </a>
                                         <div class="flex-grow-1">
-                                            <h5 class="h6 mb-0"><a class="text-black" wire:paginate href="#">{{ $post->title }}</a></h5>
+                                            <h5 class="h6 mb-0"><a class="text-black" wire:navigate href="{{ route('blog.detail', $post->slug) }}">{{ $post->title }}</a></h5>
                                             <small>{{ \Carbon\Carbon::parse($post->created_a)->format('d M, Y') }}</small>
                                         </div>
                                     </li>
