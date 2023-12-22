@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\ShowBlog;
 use App\Livewire\ShowHome;
 use App\Livewire\ShowService;
 use App\Livewire\ShowServiceDetail;
@@ -25,3 +26,4 @@ Route::get('/', ShowHome::class)->name('home');
 Route::get('/services', ShowService::class)->name('services');
 Route::get('/service/{id}', ShowServiceDetail::class)->name('service.detail');
 Route::get('/teams', ShowTeam::class)->name('teams');
+Route::get('/blog', ShowBlog::class)->name('blog');
