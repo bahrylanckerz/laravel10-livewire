@@ -33,11 +33,20 @@ class MemberResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')->label('Name')->required(),
-                TextInput::make('designation')->label('Designation')->required(),
-                TextInput::make('fb_url')->url()->label('Link Facebook')->placeholder('Facebook URL'),
-                TextInput::make('ig_url')->url()->label('Link Instagram')->placeholder('Instagram URL'),
-                TextInput::make('in_url')->url()->label('Link Linkedin')->placeholder('Linkedin URL'),
+                TextInput::make('name')->required(),
+                TextInput::make('designation')->required(),
+                TextInput::make('fb_url')
+                    ->label('Link Facebook')
+                    ->placeholder('Facebook URL')
+                    ->url(),
+                TextInput::make('ig_url')
+                    ->label('Link Instagram')
+                    ->placeholder('Instagram URL')
+                    ->url(),
+                TextInput::make('in_url')
+                    ->label('Link Linkedin')
+                    ->placeholder('Linkedin URL')
+                    ->url(),
                 FileUpload::make('image')->label('Photo'),
                 Select::make('status')
                     ->options([
@@ -53,9 +62,11 @@ class MemberResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image')->label('Photo')->width(100),
-                TextColumn::make('name')->label('Name'),
-                TextColumn::make('designation')->label('Designation'),
+                ImageColumn::make('image')
+                    ->label('Photo')
+                    ->width(100),
+                TextColumn::make('name'),
+                TextColumn::make('designation'),
                 IconColumn::make('status')->boolean(),
             ])
             ->filters([
@@ -82,9 +93,9 @@ class MemberResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListMembers::route('/'),
+            'index'  => Pages\ListMembers::route('/'),
             'create' => Pages\CreateMember::route('/create'),
-            'edit' => Pages\EditMember::route('/{record}/edit'),
+            'edit'   => Pages\EditMember::route('/{record}/edit'),
         ];
     }
 }
