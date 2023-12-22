@@ -33,10 +33,11 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')->label('Name')->required()
+                TextInput::make('name')
+                    ->required()
                     ->live(onBlur: true)
                     ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
-                TextInput::make('slug')->label('Slug')->required(),
+                TextInput::make('slug')->required(),
                 Select::make('status')
                     ->options([
                         1 => 'Active',
@@ -51,8 +52,8 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->label('Name'),
-                TextColumn::make('slug')->label('Slug'),
+                TextColumn::make('name'),
+                TextColumn::make('slug'),
                 IconColumn::make('status')->boolean(),
             ])
             ->filters([
