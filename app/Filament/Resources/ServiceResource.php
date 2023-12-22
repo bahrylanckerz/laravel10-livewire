@@ -32,10 +32,18 @@ class ServiceResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')->label('Title')->required(),
-                TextInput::make('icon_class')->label('Icon')->required(),
-                TextInput::make('short_desc')->label('Short Description')->columnSpan(2)->required(),
-                RichEditor::make('long_desc')->label('Description')->columnSpan(2)->required(),
+                TextInput::make('title')->required(),
+                TextInput::make('icon_class')
+                    ->label('Icon')
+                    ->required(),
+                TextInput::make('short_desc')
+                    ->label('Short Description')
+                    ->required()
+                    ->columnSpan(2),
+                RichEditor::make('long_desc')
+                    ->label('Description')
+                    ->required()
+                    ->columnSpan(2),
                 Select::make('status')
                     ->options([
                         1 => 'Active',
@@ -50,7 +58,7 @@ class ServiceResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')->label('Title'),
+                TextColumn::make('title'),
                 TextColumn::make('short_desc')->label('Short Description'),
                 IconColumn::make('status')->boolean(),
             ])
