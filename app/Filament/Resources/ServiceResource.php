@@ -10,16 +10,17 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\RichEditor;
+use Filament\Tables\Actions\DeleteAction;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use App\Filament\Resources\ServiceResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ServiceResource\RelationManagers;
-use Filament\Tables\Actions\DeleteAction;
 
 class ServiceResource extends Resource
 {
@@ -51,6 +52,7 @@ class ServiceResource extends Resource
             ->columns([
                 TextColumn::make('title')->label('Title'),
                 TextColumn::make('short_desc')->label('Short Description'),
+                IconColumn::make('status')->boolean(),
             ])
             ->filters([
                 //

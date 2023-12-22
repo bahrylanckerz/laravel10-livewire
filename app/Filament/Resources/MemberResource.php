@@ -10,6 +10,7 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ImageColumn;
@@ -55,6 +56,7 @@ class MemberResource extends Resource
                 ImageColumn::make('image')->label('Photo')->width(100),
                 TextColumn::make('name')->label('Name'),
                 TextColumn::make('designation')->label('Designation'),
+                IconColumn::make('status')->boolean(),
             ])
             ->filters([
                 //
