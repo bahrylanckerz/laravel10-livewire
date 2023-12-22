@@ -14,7 +14,7 @@ class ShowBlog extends Component
 
     public function render()
     {
-        $paginate = 6;
+        $paginate = 4;
         $categories = Category::where('status', '1')->orderBy('name', 'asc')->get();
         if($this->category){
             $category = Category::where('slug', $this->category)->first();
@@ -25,7 +25,7 @@ class ShowBlog extends Component
         }else{
             $posts = Post::where('status', '1')->orderBy('created_at', 'desc')->paginate($paginate);
         }
-        $latestPosts = Post::where('status', '1')->orderBy('created_at', 'desc')->get()->take(3);
+        $latestPosts = Post::where('status', '1')->orderBy('created_at', 'desc')->get()->take(4);
         $data['posts']       = $posts;
         $data['categories']  = $categories;
         $data['latestPosts'] = $latestPosts;

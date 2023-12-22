@@ -6,7 +6,10 @@
             @endif
         </div>
         <div class="pt-4">
-            <p class="mb-3">{{ \Carbon\Carbon::parse($post->created_a)->format('d M, Y') }}</p>
+            <div class="d-flex justify-content-between">
+                <p class="mb-3">{{ \Carbon\Carbon::parse($post->created_a)->format('d M, Y') }}</p>
+                <p class="mb-3">{{ $post->author }}</p>
+            </div>
             <h2 class="h4"><a class="text-black" wire:navigate href="#">{{ $post->title }}</a></h2>
             <a wire:navigate href="#" class="text-primary fw-bold">Read More</a>
         </div>
